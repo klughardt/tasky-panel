@@ -1,0 +1,62 @@
+I. AWS Resource & Configuration Names
+A. IAM
+circleci-deploy: Name for the IAM user created for CircleCI.
+
+wiz-ssh-key: Name for the SSH key pair to access the MongoDB EC2 instance.
+
+B. ECR
+tasky-app: Name of the ECR repository.
+
+${AWS_ACCOUNT_ID}.dkr.ecr.eu-central-1.amazonaws.com/tasky-app: Full ECR repository URI.
+
+C. S3 Buckets
+wiz-tf-state-${data.aws_caller_identity.current.account_id}: Bucket name for Terraform state. You need to know your AWS account ID.
+
+wiz-db-backups-${data.aws_caller_identity.current.account_id}: Bucket name for database backups. You need to know your AWS account ID.
+
+wiz-security-scans-${AWS_ACCOUNT_ID}: Bucket name for security scans. You need to know your AWS account ID.
+
+D. EKS Cluster
+wiz-exercise-cluster: Name of the EKS cluster.
+
+E. CloudWatch
+PublicBucketAccess: Name for the CloudWatch alarm.
+
+wiz-security-alerts: Name of the SNS topic.
+
+II. CircleCI Environment Variables
+You must set these variables in your CircleCI project's settings.
+
+AWS_ACCESS_KEY_ID: AWS Access Key ID for the circleci-deploy IAM user.
+
+AWS_SECRET_ACCESS_KEY: AWS Secret Access Key for the circleci-deploy IAM user.
+
+AWS_ACCOUNT_ID: Your 12-digit AWS account ID (as a string).
+
+ECR_URL: The full URI of your ECR repository, e.g., 123456789012.dkr.ecr.eu-central-1.amazonaws.com/tasky-app.
+
+III. Terraform Variables (infrastructure/variables.tf)
+region: AWS region (default: eu-central-1). Ensure this matches the region where you are deploying everything.
+
+cluster_name: EKS cluster name (default: wiz-exercise-cluster). Keep this consistent.
+
+mongodb_ami: AMI ID for the MongoDB EC2 instance (default: ami-0a49b025fffbbdac6 - Ubuntu 18.04). You should consider finding a more recent Ubuntu AMI in the eu-central-1 region, but keep in mind it should be an older version of Linux to satisfy the "outdated Linux version" requirement.
+
+ec2_key_name: The name of the EC2 KeyPair (default: wiz-ssh-key).
+
+IV. Kubernetes Configurations
+MONGO_URI (application/kubernetes/deployment.yaml): The MongoDB connection string. Ensure to correctly resolve the Internal IP or Internal DNS.
+
+V. infrastructure/eks/alb-controller.tf
+${path.module}/iam_policies/alb-controller.json: Path to the ALB controller IAM policy.
+
+module.eks.oidc_provider_arn: ARN of the OIDC provider associated with the EKS cluster.
+
+[${module.eks.oidc_provider}](pplx://action/followup):aud: OIDC provider for the service account
+
+VI. application/helm/alb-controller/values.yaml
+clusterName: The name of the EKS cluster (same as wiz-exercise-cluster).
+
+region: The AWS region (same as eu-central-1).
+
+vpcId: The VPC ID for where the resources are located.

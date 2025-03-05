@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasky-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tasky
+  template:
+    metadata:
+      labels:
+        app: tasky
+    spec:
+      serviceAccountName: admin-sa
+      containers:
+      - name: tasky
+        image: ${ECR_URL}/tasky-app:latest
+        securityContext:
+          privileged: true
+          runAsUser: 0
+        env:
+        - name: MONGO_URI
+          value: "mongodb://${MONGODB_IP}:27017" # TODO
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-sa
+automountServiceAccountToken: true

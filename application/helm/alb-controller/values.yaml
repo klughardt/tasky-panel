@@ -1,0 +1,6 @@
+clusterName: wiz-exercise-cluster
+region: eu-central-1
+vpcId: vpc-12345678 # TODO
+serviceAccount:
+  create: false
+  name: aws-load-balancer-controller
