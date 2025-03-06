@@ -1,3 +1,7 @@
+
+
+/*
+
 terraform {
   required_providers {
     aws = {
@@ -15,7 +19,7 @@ terraform {
     key            = "state/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "tf-lock-table-wiz-exercise"
+    dynamodb_table = "tf-lock-table-tasky-panel"
   }
 }
 
