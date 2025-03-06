@@ -6,13 +6,6 @@ jobs:
         steps:
           - checkout
           - run:
-                name: Infrastructure Directory
-                command: pwd
-          - run:
-                name: Working Directory
-                working_directory: ~/project/infrastructure
-                command: pwd
-          - run:
                 name: Initialize Terraform
                 working_directory: ~/project/infrastructure
                 command: terraform init
@@ -28,13 +21,12 @@ jobs:
         steps:
           - checkout
           - run:
-                name: Infrastructure Directory
-                command: cd infrastructure
-          - run:
                 name: Initialize Terraform
+                working_directory: ~/project/infrastructure
                 command: terraform init
           - run:
                 name: Terraform Apply
+                working_directory: ~/project/infrastructure
                 command: terraform apply -auto-approve
 
 workflows:
