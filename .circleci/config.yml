@@ -7,10 +7,10 @@ jobs:
     - checkout
     - run:
         name: Initialize Terraform
-        command: terraform init
+        command: infrastructure/terraform init
     - run:
         name: Terraform Plan
-        command: terraform plan
+        command: infrastructure/terraform plan
 
   terraform_apply:
     docker:
@@ -19,10 +19,10 @@ jobs:
     - checkout
     - run:
         name: Initialize Terraform
-        command: terraform init
+        command: infrastructure/terraform init
     - run:
         name: Terraform Apply
-        command: terraform apply -auto-approve
+        command: infrastructure/terraform apply -auto-approve
 
 workflows:
   version: 2
