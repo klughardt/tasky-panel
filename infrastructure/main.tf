@@ -27,8 +27,6 @@ provider "aws" {
 data "aws_caller_identity" "current" {}
 
 
-
-
 /*
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
