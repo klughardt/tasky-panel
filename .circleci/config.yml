@@ -7,15 +7,18 @@ jobs:
           - checkout
           - run:
                 name: Infrastructure Directory
-                command: cd infrastructure
+                command: pwd
           - run:
-                name: Infrastructure Directory
+                name: Working Directory
+                working_directory: ~/infrastructure
                 command: pwd
           - run:
                 name: Initialize Terraform
+                working_directory: ~/infrastructure
                 command: terraform init
           - run:
                 name: Terraform Plan
+                working_directory: ~/infrastructure
                 command: terraform plan
 
     terraform_apply:
