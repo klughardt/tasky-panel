@@ -1,5 +1,6 @@
 output "eks_cluster_endpoint" {
   value = module.eks.cluster_endpoint
+  depends_on = [module.eks]
 }
 
 output "mongodb_public_ip" {
