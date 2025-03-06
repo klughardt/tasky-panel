@@ -7,25 +7,26 @@ jobs:
     - checkout
     - run:
         name: Initialize Terraform
-        working_directory: ~/project/infrastructure
+        working_directory: ~/project/remote-state
         command: terraform init
     - run:
         name: Terraform Plan
-        working_directory: ~/project/infrastructure
+        working_directory: ~/project/remote-state
         command: terraform plan
 
   terraform_apply:
+    working_directory: ~/project/remote-state/
     docker:
     - image: hashicorp/terraform:light
     steps:
     - checkout
     - run:
         name: Initialize Terraform
-        working_directory: ~/project/infrastructure
+        working_directory: ~/project/remote-state
         command: terraform init
     - run:
         name: Terraform Apply
-        working_directory: ~/project/infrastructure
+        working_directory: ~/project/remote-state
         command: terraform apply -auto-approve
 
 workflows:
