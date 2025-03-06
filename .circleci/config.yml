@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   terraform_plan:
-    path: 'infrastructure/'
+    working_directory: ~/infrastructure/
     docker:
     - image: hashicorp/terraform:light
     steps:
@@ -14,7 +14,7 @@ jobs:
         command: terraform plan
 
   terraform_apply:
-    path: 'infrastructure/'
+    working_directory: ~/infrastructure/
     docker:
     - image: hashicorp/terraform:light
     steps:
