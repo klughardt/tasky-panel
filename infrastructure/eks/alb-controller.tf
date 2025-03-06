@@ -1,3 +1,5 @@
+/*
+
 resource "aws_iam_policy" "alb_controller" {
   name        = "AWSLoadBalancerControllerIAMPolicy"
   description = "Policy for ALB Controller permissions"
@@ -60,3 +62,5 @@ resource "helm_release" "aws_load_balancer_controller" {
 
   depends_on = [module.eks]
 }
+
+*/

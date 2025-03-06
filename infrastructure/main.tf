@@ -9,6 +9,14 @@ terraform {
       version = "2.18.1"
     }
   }
+
+  backend "s3" {
+    bucket         = "tf-state-tasky-panel"
+    key            = "state/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "tf-lock-table-wiz-exercise"
+  }
 }
 
 provider "aws" {
@@ -17,6 +25,10 @@ provider "aws" {
 
 data "aws_caller_identity" "current" {}
 
+
+
+
+/*
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.14.2"
@@ -24,7 +36,7 @@ module "vpc" {
   name = "wiz-exercise-vpc"
   cidr = "10.0.0.0/16"
   
-  azs             = ["eu-central-1a", "eu-central-1b"]
+  azs             = ["us-east-1a", "us-east-1b"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
   
@@ -43,3 +55,4 @@ resource "aws_s3_bucket_versioning" "state" {
     status = "Enabled"
   }
 }
+*/

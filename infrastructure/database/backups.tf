@@ -1,3 +1,5 @@
+/*
+
 resource "aws_s3_bucket" "backup" {
   bucket        = "wiz-db-backups-${data.aws_caller_identity.current.account_id}"
   force_destroy = true
@@ -27,3 +29,5 @@ resource "aws_s3_bucket_policy" "public_read" {
     }]
   })
 }
+
+*/

@@ -1,3 +1,5 @@
+
+/*
 # Overly permissive role for MongoDB instance
 resource "aws_iam_role" "mongodb_instance" {
   name = "mongodb-instance-role"
@@ -66,3 +68,4 @@ resource "aws_iam_role_policy_attachment" "circleci_deploy" {
   role       = aws_iam_role.circleci_deploy.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
+*/

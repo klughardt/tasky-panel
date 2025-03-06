@@ -1,3 +1,4 @@
+/*
 resource "aws_cloudwatch_metric_alarm" "public_bucket_access" {
   alarm_name          = "PublicBucketAccess"
   comparison_operator = "GreaterThanThreshold"
@@ -17,3 +18,4 @@ resource "aws_guardduty_detector" "main" {
 resource "aws_sns_topic" "security_alerts" {
   name = "wiz-security-alerts"
 }
+*/

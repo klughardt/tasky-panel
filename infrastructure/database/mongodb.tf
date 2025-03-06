@@ -1,3 +1,5 @@
+/*
+
 resource "aws_instance" "mongodb" {
   ami                    = "ami-0a49b025fffbbdac6" # Ubuntu 18.04
   instance_type          = "t3.micro"
@@ -56,3 +58,5 @@ resource "aws_iam_role_policy_attachment" "mongodb_admin" {
   role       = aws_iam_role.mongodb.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
+
+*/

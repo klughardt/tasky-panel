@@ -1,3 +1,5 @@
+/*
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.30.2"
@@ -21,3 +23,5 @@ resource "aws_iam_role_policy_attachment" "eks_admin" {
   role       = module.eks.cluster_iam_role_name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
+
+*/
