@@ -16,7 +16,7 @@ terraform {
     key            = "state/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "tf-lock-table-tasky-panel"
+    dynamodb_table = "tf-state-tasky-panel-locktable"
   }
 }
 
