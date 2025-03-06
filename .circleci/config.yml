@@ -7,6 +7,9 @@ jobs:
     steps:
     - checkout
     - run:
+        name: Output Directory
+        command: pwd
+    - run:
         name: Initialize Terraform
         command: terraform init
     - run:
