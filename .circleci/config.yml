@@ -6,8 +6,8 @@ jobs:
     steps:
     - checkout
     - run:
-        name: Output Directory
-        command: pwd
+        name: Infrastructure Directory
+        command: cd infrastructure
     - run:
         name: Initialize Terraform
         command: terraform init
@@ -21,6 +21,9 @@ jobs:
     - image: hashicorp/terraform:light
     steps:
     - checkout
+    - run:
+        name: Infrastructure Directory
+        command: cd infrastructure
     - run:
         name: Initialize Terraform
         command: terraform init
