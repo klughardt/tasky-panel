@@ -50,10 +50,18 @@ jobs:
     - image: hashicorp/terraform:light
     steps:
     - checkout
+    - attach_workspace:
+        at: ~/project
     - run:
         name: Initialize Terraform
         working_directory: ~/project/infrastructure
-        command: terraform init
+        command: |
+          source ~/project/pipeline-flags.env 
+          if [ "$RUN_TERRAFORM" != "true" ]; then
+            echo "No Terraform changes detected. Skipping Terraform." 
+            exit 0 
+          fi        
+          terraform init
     - run:
         name: Terraform Apply
         working_directory: ~/project/infrastructure
