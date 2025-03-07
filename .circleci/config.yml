@@ -37,7 +37,7 @@ jobs:
           source ~/project/pipeline-flags.env 
           if [ "$RUN_TERRAFORM" != "true" ]; then
             echo "No Terraform changes detected. Skipping Terraform." 
-            exit 0 
+            circleci-agent step halt
           fi 
           terraform init
     - run:
