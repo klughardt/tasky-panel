@@ -8,6 +8,7 @@ jobs:
     - checkout
     - run: |
         echo "Geänderte Dateien im Vergleich zu origin/main:"
+        git fetch origin
         git diff origin/main      
         echo "asdfsdafa"
 
