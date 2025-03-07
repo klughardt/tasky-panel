@@ -38,7 +38,7 @@ jobs:
     - run: |
         source ~/project/pipeline-flags.env 
         if [ "$RUN_TERRAFORM" != "true" ]; then
-          # echo "No Terraform changes detected. Skipping Terraform." 
+          echo "Terraform planning." 
           # circleci-agent step halt
         fi 
     - run:
@@ -60,7 +60,7 @@ jobs:
     - run: |
         source ~/project/pipeline-flags.env 
         if [ "$RUN_TERRAFORM" != "true" ]; then
-          # echo "No Terraform changes detected. Skipping Terraform." 
+          echo "Terraform running" 
           # circleci-agent step halt
         fi 
     - run:
