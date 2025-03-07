@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  check-changes:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Fetch latest changes
+          command: git fetch origin
+      - run:
+          name: Check for changes
+          command: git diff origin/main..HEAD
+workflows:
+  version: 2
+  check:
+    jobs:
+      - check-changes
