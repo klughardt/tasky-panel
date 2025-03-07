@@ -59,7 +59,7 @@ workflows:
 
     - terraform_plan:
         requires:
-        - determine_changes
+        - determine-changes
 
     - terraform_apply:
         requires:
