@@ -1,5 +1,5 @@
 
- 
+ /*
 # Overly permissive role for MongoDB instance
 resource "aws_iam_role" "mongodb_instance" {
   name = "mongodb-instance-role"
