@@ -2,7 +2,8 @@ version: 2.1
 
 jobs:
   determine-changes:
-    executor: default
+    docker:
+    - image: hashicorp/terraform:light
     steps:
     - checkout
     - run: |
