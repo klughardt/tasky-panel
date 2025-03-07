@@ -3,11 +3,6 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable "aws_secondary_region" {
-  type        = string
-  default     = "us-west-1"
-}
-
 variable "cluster_name" {
   default = "wiz-exercise-cluster"
 }
@@ -25,10 +20,5 @@ variable "project_name" {
 }
 
 variable "db_user" {
-  default = "dbadmin"
-}
-
-variable "db_pass" {
-  sensitive = true
-  type = string
+  default = "mongoadmin"
 }

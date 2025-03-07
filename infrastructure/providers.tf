@@ -1,10 +1,5 @@
 provider "aws" {
-  region = var.aws_region
-}
-
-provider "aws" {
-  alias  = "secondary_region"
-  region = var.aws_secondary_region
+  region = var.region
 }
 
 data "aws_eks_cluster" "cluster" {
