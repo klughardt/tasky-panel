@@ -16,7 +16,7 @@ jobs:
           - run:
                 name: Terraform Apply
                 working_directory: ~/project/infrastructure
-                command: terraform destroy
+                command: terraform destroy -auto-approve
 
 workflows:
     version: 2
