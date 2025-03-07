@@ -22,3 +22,8 @@ variable "project_name" {
 variable "db_user" {
   default = "mongoadmin"
 }
+
+variable "log_retention_days" {
+  type        = number
+  default     = 365
+}
