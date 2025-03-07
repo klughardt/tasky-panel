@@ -20,6 +20,7 @@ terraform {
     encrypt        = true
     dynamodb_table = "tf-state-tasky-panel-locktable"
   }
+/*  
 }
 
 
