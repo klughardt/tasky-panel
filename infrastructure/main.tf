@@ -1,4 +1,5 @@
 
+/*
 terraform {
   required_providers {
     aws = {
@@ -10,6 +11,7 @@ terraform {
       version = "~> 2.18"
     }
   }
+*/
 
   backend "s3" {
     bucket         = "tf-state-tasky-panel"
