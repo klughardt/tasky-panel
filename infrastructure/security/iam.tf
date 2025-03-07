@@ -1,5 +1,5 @@
 
-/*
+
 # Overly permissive role for MongoDB instance
 resource "aws_iam_role" "mongodb_instance" {
   name = "mongodb-instance-role"
@@ -18,6 +18,7 @@ resource "aws_iam_role" "mongodb_instance" {
   })
 }
 
+/*
 resource "aws_iam_role_policy_attachment" "mongodb_admin" {
   role       = aws_iam_role.mongodb_instance.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
